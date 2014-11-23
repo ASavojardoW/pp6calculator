@@ -65,3 +65,81 @@ double getNumber(){
        }
        return res;
 }
+
+int swap(double& a, double& b)
+{
+  double tmp(a);
+  a = b;
+  b = tmp;
+  return 0;
+}
+
+int swap(int& a, int& b)
+{
+  int tmp(a);
+  a = b;
+  b = tmp;
+  return 0;
+}
+
+int basic_sort(double *arr, int size)
+{
+  // Perform a bubble sort on the given array
+  bool done(true);
+
+  while (true)
+  {
+    done = true;
+
+    for (int i = 0; i < size-1; ++i)
+    {
+      if (arr[i] < arr[i+1])
+      {
+        swap(arr[i], arr[i+1]);
+        done = false;
+      }
+    }
+
+    if (done)
+    {
+      break;
+    }
+  }
+  return 0;
+}
+
+int associative_sort(double *arr, int *index, int size)
+{
+  // create a temporary array to sort on so we only change the index array
+  double *arr_t = new double[size];
+  for (int i(0); i < size; i++)
+  {
+    arr_t[i] = arr[i];
+  }
+
+  // Perform a bubble sort on the given array
+  bool done(true);
+
+  while (true)
+  {
+    done = true;
+
+    for (int i(0); i < size-1; ++i)
+    {
+      if (arr_t[i] < arr_t[i+1])
+      {
+        swap(index[i], index[i+1]);
+        swap(arr_t[i], arr_t[i+1]);
+        done = false;
+      }
+    }
+    if (done)
+    {
+      break;
+    }
+  }
+
+  // delete temporary array, then return success
+  delete [] arr_t;
+  return 0;
+}

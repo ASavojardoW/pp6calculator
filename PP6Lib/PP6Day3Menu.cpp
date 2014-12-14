@@ -1,13 +1,13 @@
-#include "PP6Math.hpp"
 #include "PP6Day3Menu.hpp"
-#include "FourVector.hpp"
-#include "Particle.hpp"
+#include "FourVectorOld.hpp"
+#include "ParticleOld.hpp"
 
 #include <iostream>
 #include <limits>
 #include <string>
 #include <fstream>
 
+#include "PP6Math.hpp"
 #include "FileReader.hpp"
 
 void pp6day3menu(){
@@ -43,7 +43,7 @@ void pp6day3menu(){
           cz = getNumber();
           std::cout << "Enter the velocity: " << std::endl;
           v = getNumber();
-          FourVector q(time, cx, cy, cz);
+          FourVectorOld q(time, cx, cy, cz);
           q.boost_z(v);
           std::cout << "New vector: {" << q.getT() << "," << q.getX() << "," << q.getY() << "," << q.getZ() << "}" << std::endl;
      }
@@ -56,7 +56,7 @@ void pp6day3menu(){
           cy = getNumber();
           cz = getNumber();
           std::cout << "4-Vector: {" << time << "," << cx << "," << cy << "," << cz << "}" << std::endl;
-          FourVector q(time, cx, cy, cz);
+          FourVectorOld q(time, cx, cy, cz);
           q.interval();
           std::cout << "Interval s = " << q.interval() << std::endl;          
      }
@@ -131,7 +131,7 @@ void pp6day3menu(){
               antimuonPy[i*ip+j] = py_m[i];
               antimuonPz[i*ip+j] = pz_m[i];
 	      antimuonEnergy[i*ip+j] = E_m;
-              Particle q(E_p, px_p[j], py_p[j], pz_p[j], E_m, px_m[i], py_m[i], pz_m[i]);
+              ParticleOld q(E_p, px_p[j], py_p[j], pz_p[j], E_m, px_m[i], py_m[i], pz_m[i]);
               result[i*ip+j] = q.inv_mass();
               event_muon[i*ip+j] = event_p[j];
               event_antimuon[i*ip+j] = event_m[i];

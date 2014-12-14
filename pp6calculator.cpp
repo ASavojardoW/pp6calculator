@@ -2,6 +2,7 @@
 #include "PP6Day2Menu.hpp"
 #include "PP6Day3Menu.hpp"
 #include "PP6Day4Menu.hpp"
+#include "PP6Day5Menu.hpp"
 
 #include <iostream>
 #include <limits>
@@ -19,8 +20,7 @@ int main() {
        std::cout << "2) 2nd day" << std::endl;
        std::cout << "3) 3rd day" << std::endl;
        std::cout << "4) 4th day" << std::endl;
-       //std::cout << "5) 5th day" << std::endl;
-       //std::cout << "6) 6th day" << std::endl;
+       std::cout << "5) 5th day" << std::endl;
        std::cout << "q) Quit" << std::endl;
        std::cout << ">> ";
        std::cin >> op;
@@ -48,6 +48,10 @@ int main() {
     
     else if(op == '4'){  
        pp6day4menu();
+    }
+    
+    else if(op == '5'){  
+       pp6day5menu();
     }
     else{
         std::cerr << "[error] Operation '" << op << "' not recognised." << std::endl;
